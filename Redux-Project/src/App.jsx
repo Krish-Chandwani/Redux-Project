@@ -2,6 +2,7 @@ import React from "react";
 import { fetchPhotos } from "./api/mediaApi";
 import { fetchVideos } from "./api/mediaApi";
 import SearchBar from "./components/searchBar";
+import Tabs from "./components/tabs";
 
 
 const App=()=>{
@@ -14,8 +15,12 @@ const App=()=>{
         //     <button className="bg-blue-400 px-3 py-4 mx-3 rounded-md" onClick={(async()=>{await fetchPhotos("nature")})}>Get Photos</button>
         //     <button className="bg-blue-400 px-3 py-4 mx-3 rounded-md" onClick={(async()=>{await fetchVideos("nature")})}>Get Videos</button>
         // </div>
-
-        <SearchBar></SearchBar>
+        
+        <div>
+            <SearchBar></SearchBar>
+            <Tabs></Tabs>
+        </div>
+        
 
     )
 }
