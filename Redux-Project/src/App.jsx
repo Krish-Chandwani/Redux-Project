@@ -1,28 +1,24 @@
-import React from "react";
-import { fetchPhotos } from "./api/mediaApi";
-import { fetchVideos } from "./api/mediaApi";
-import SearchBar from "./components/searchBar";
-import Tabs from "./components/tabs";
+// import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import CollectionPage from './pages/CollectionPage'
+import Navbar from './components/navbar'
+import { ToastContainer } from 'react-toastify';
+  
+const App = () => {
+  return (
+    <div className="min-h-screen text-white w-full bg-gray-950">
 
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/collection' element={<CollectionPage />} />
+      </Routes>
 
-const App=()=>{
+      <ToastContainer />
 
-    // function getPhotos(){
-    //     fetchPhotos();
-    // }
-    return(
-        // <div className="h-screen text-white w-full bg-gray-950">
-        //     <button className="bg-blue-400 px-3 py-4 mx-3 rounded-md" onClick={(async()=>{await fetchPhotos("nature")})}>Get Photos</button>
-        //     <button className="bg-blue-400 px-3 py-4 mx-3 rounded-md" onClick={(async()=>{await fetchVideos("nature")})}>Get Videos</button>
-        // </div>
-        
-        <div>
-            <SearchBar></SearchBar>
-            <Tabs></Tabs>
-        </div>
-        
-
-    )
+    </div>
+  )
 }
 
-export default App;
+export default App

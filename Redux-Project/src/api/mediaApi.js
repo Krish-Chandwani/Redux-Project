@@ -5,7 +5,7 @@ const PEXELS_KEY= import.meta.env.VITE_PEXELS_KEY;
 
 
 export async function fetchPhotos(query,page=1,per_page=20){
-    console.log("query:", query);
+    // console.log("query:", query);
     const res = await axios.get(
         'https://api.unsplash.com/search/photos',
         {

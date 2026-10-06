@@ -1,41 +1,48 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const searchSlice = createSlice({
-    name: 'search',
+    name: "search",
     initialState: {
-        searchQuery: '',
+        query: '',
         activeTab: 'photos',
-        searchResults: [],
+        results: [],
         loading: false,
         error: null
     },
-
-    reducers:{
-        setSearchQuery: (state, action) => {
-            state.searchQuery=action.payload
+    reducers: {
+        setQuery(state, action) {
+            state.query = action.payload
         },
-        setActiveTab: (state,action) =>{
-            state.activeTab=action.payload
-        }, 
-        setSearchResults: (state,action)=>{
-            state.loading=false
-            state.searchResults=action.payload
+        setActiveTabs(state, action) {
+            state.activeTab = action.payload
         },
-        setLoading: (state,action)=>{
-            state.loading=action.payload
-            state.error=null
+        setResults(state, action) {
+            state.results = action.payload
+            state.loading = false
         },
-        setError: (state,action)=>{
-            state.error=action.payload
-            state.loading=false
+        setLoading(state) {
+            state.loading = true
+            state.error = null
         },
-        clearResults: (state)=>{
-            state.searchResults=[]
+        setError(state, action) {
+            state.error = action.payload
+            state.loading = false
+        },
+        clearResults(state) {
+            state.results = []
         }
     }
-    
-});
+})
 
-export const {setSearchQuery,setActiveTab,setSearchResults,setError,setLoading,clearResults} = searchSlice.actions
+
+export const {
+    setQuery,
+    setActiveTabs,
+    setError,
+    setLoading,
+    setResults,
+    clearResults
+} = searchSlice.actions
+
 
 export default searchSlice.reducer;
